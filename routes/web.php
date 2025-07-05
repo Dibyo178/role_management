@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -31,6 +32,18 @@ Route::get('test',function(){
 Route::middleware(['auth', 'verified'])->group(function(){
 
     Route::get('user-logout',[UserController::class,'logout'])->name('user-logout');
+
+    Route::get('/roles',[RoleController::class, 'index'])->name('roles.index');
+
+    Route::get('/roles/create',[RoleController::class, 'create'])->name('roles.create');
+    Route::post('/roles',[RoleController::class, 'store'])->name('roles.store');
+
+    Route::get('/roles/{id}/edit',[RoleController::class, 'edit'])->name('roles.edit');
+
+    Route::put('/roles/{id}',[RoleController::class, 'update'])->name('roles.update');
+
+    Route::delete('/roles/{id}',[RoleController::class, 'destroy'])->name('roles.destroy');
+
 
 });
 

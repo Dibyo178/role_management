@@ -45,11 +45,11 @@
 					</a>
 					<ul>
 						<li>
-							<a href="roles-index.html"><i class='bx bx-radio-circle'></i>All Roles</a>
+							<a href="{{ route('roles.index') }}"><i class='bx bx-radio-circle'></i>All Roles</a>
 						</li>
 
 						<li>
-							<a href="roles-create.html"><i class='bx bx-radio-circle'></i>Create Role</a>
+							<a href="{{ route('roles.create')}}"><i class='bx bx-radio-circle'></i>Create Role</a>
 						</li>
 					</ul>
 				</li>
