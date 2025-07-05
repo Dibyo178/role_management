@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
 {
@@ -12,7 +14,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $users = User::with('roles')->get();
+        return view('backend.pages.users.index',compact('users'));
     }
 
     /**
@@ -20,7 +23,9 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        $roles = Role::latest()->get();
+
+         return view('backend.pages.users.create',compact('roles'));
     }
 
     /**
@@ -28,7 +33,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd($request->all());
     }
 
     /**
