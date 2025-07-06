@@ -17,7 +17,7 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-        $superAdmin = User::create([
+                $superAdmin = User::create([
             'name' => 'Super Admin',
             'email' => 'superadmin@gmail.com',
             'password' => Hash::make('password')
@@ -29,20 +29,16 @@ class UserSeeder extends Seeder
             'password' => Hash::make('password')
         ]);
 
+        //create role
+        $role = Role::create(['name'=>'Admin']);
 
-        //  create user
-
-        $role = Role::create(['name' => 'Admin']);
-
-        // Assohn permission to role
-
+        //Assign Permissions to Role
         $permission = Permission::pluck('id')->all();
         $role->syncPermissions($permission);
 
-        // Assign role to user
-
-      $superAdmin->assignRole($role);
-      $admin->syncRoles($role);
-
+        //Assign Role to User
+        $superAdmin->assignRole($role);
+        $admin->syncRoles($role);
+    
     }
 }

@@ -14,16 +14,21 @@
                </ol>
            </nav>
        </div>
+       @can('role-create')
+
+
        <div class="ms-auto">
            <div class="btn-group">
                <a href="{{ route('roles.create') }}" class="btn btn-primary">Create Role</a>
            </div>
        </div>
+        @endcan
    </div>
    <!--end breadcrumb-->
    <h6 class="mb-0 text-uppercase">Role and Permissions</h6>
    <hr>
 
+    {{-- @can('role-list') --}}
    <div class="card">
        <div class="card-body">
            <div class="table-responsive">
@@ -56,7 +61,20 @@
 
                                </td>
                                <td class="d-flex gap-2">
+
+                                 {{-- @can('role-edit') --}}
+
+
+
                                    <a href="{{ route('roles.edit',$role->id) }}" class="btn btn-primary btn-small">edit</a>
+
+                                    {{-- @endcan --}}
+
+                                    {{-- @can('role-delete') --}}
+
+                                    {{-- @endcan --}}
+
+                                    {{-- @can('role-delete') --}}
 
                                    <form action="{{ route('roles.destroy',$role->id) }}" method="post">
 
@@ -67,6 +85,9 @@
                                    <button type="submit" class="btn btn-danger btn-small">delete</button>
 
                                    </form>
+
+                                   {{-- @endcan --}}
+
                                </td>
                            </tr>
 
@@ -78,7 +99,6 @@
            </div>
        </div>
    </div>
-
 
    <!-- end-content -->
 

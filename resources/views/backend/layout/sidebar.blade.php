@@ -37,6 +37,9 @@
 				</li>
 
 				<li class="menu-label">Pages</li>
+
+                @can('role-menu')
+
 				<li>
 					<a href="javascript:;" class="has-arrow">
 						<div class="parent-icon"><i class='bx bx-cart'></i>
@@ -44,15 +47,27 @@
 						<div class="menu-title">Role and Permission</div>
 					</a>
 					<ul>
+
+                        @can('role-list')
 						<li>
 							<a href="{{ route('roles.index') }}"><i class='bx bx-radio-circle'></i>All Roles</a>
 						</li>
 
+                        @endcan
+
+
+                        @can('role-create')
+
 						<li>
 							<a href="{{ route('roles.create')}}"><i class='bx bx-radio-circle'></i>Create Role</a>
 						</li>
+
+                        @endcan
+                        
 					</ul>
 				</li>
+
+                @endcan
 
 				<li>
 					<a class="has-arrow" href="javascript:;">
