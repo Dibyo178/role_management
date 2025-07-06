@@ -26,11 +26,11 @@
 					</a>
 					<ul>
 						<li>
-							<a href="product-index.html"><i class='bx bx-radio-circle'></i>All Product</a>
+							<a href="{{ route('product.index') }}"><i class='bx bx-radio-circle'></i>All Product</a>
 						</li>
 
 						<li>
-							<a href="product-create.html"><i class='bx bx-radio-circle'></i>Create Product</a>
+							<a href="{{ route('product.create') }}"><i class='bx bx-radio-circle'></i>Create Product</a>
 						</li>
 
 					</ul>

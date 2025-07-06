@@ -14,7 +14,7 @@
         </div>
         <div class="ms-auto">
             <div class="btn-group">
-                <a href="user-index.html" class="btn btn-primary">All Users</a>
+                <a href="{{ route('product.index') }}" class="btn btn-primary">All Product</a>
             </div>
         </div>
     </div>
@@ -24,19 +24,20 @@
             <div class="card">
                 <div class="card-body p-4">
                     <h5 class="mb-4">Create Products</h5>
-                    <form action="{{ route('users.update',$user->id) }}" method="post">
+                    <form action="{{ route('products.update',$product->id) }}" method="post">
 
                         @csrf
 
-                       @method('PUT')
-
+                        @method('PUT')
+                        
                         <div class="row mb-3">
-                            <label for="name" class="col-sm-3 col-form-label">Name</label>
+                            <label for="name" class="col-sm-3 col-form-label">Product Name</label>
                             <div class="col-sm-9">
                                 <input type="text"
                                     class="form-control @error('name') is-invalid
-                                            @enderror"
-                                    id="name" name="name" value="{{ $user ->name}}" placeholder="Enter Your Name">
+                                @enderror"
+                                    id="name" name="name" value="{{ $product->name }}" placeholder="Enter Your Name">
+
                                 @error('name')
                                     <div class="text-danger">{{ $message }}</div>
                                 @enderror
@@ -44,55 +45,43 @@
 
                         </div>
                         <div class="row mb-3">
-                            <label for="email" class="col-sm-3 col-form-label">Email</label>
+                            <label for="price" class="col-sm-3 col-form-label">Product price</label>
                             <div class="col-sm-9">
-                                <input type="email" class="form-control @error('email') is-invalid
-                                            @enderror" id="email" name="email" value="{{ $user->email }}"
-                                    placeholder="Enter your email">
+                                <input type="number"
+                                    class="form-control @error('price') is-invalid
+                                @enderror"
+                                    id="price" name="price" value="{{ $product->price }}" placeholder="Product price">
 
-                                       @error('email')
+                                @error('price')
                                     <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
 
                         </div>
                         <div class="row mb-3">
-                            <label for="password" class="col-sm-3 col-form-label">Password</label>
+                            <label for="quantity" class="col-sm-3 col-form-label">Quantity</label>
                             <div class="col-sm-9">
-                                <input type="password" class="form-control @error('password') is-invalid
-                                            @enderror" id="password" name="password" value=""
-                                    placeholder="Enter your password">
+                                <input type="number"
+                                    class="form-control @error('quantity') is-invalid
+                                @enderror"
+                                    id="quantity" name="quantity" value="{{ $product->quantity }}" placeholder="Product quantity">
 
-                                       @error('password')
+                                @error('quantity')
                                     <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
+
                         </div>
-
                         <div class="row mb-3">
-                            <label for="password" class="col-sm-3 col-form-label">Confirm Password</label>
+                            <label for="description" class="col-sm-3 col-form-label">Description</label>
                             <div class="col-sm-9">
-                                <input type="password" class="form-control @error('confirm_password') is-invalid
-                                            @enderror" id="confirm_password" name="confirm_password"
-                                    value="" placeholder="Enter confirm password">
+                                <textarea class="form-control @error('description') is-invalid
+                                @enderror"
+                                    id="description" name="description" rows="3" placeholder="description">{{ $product->description }}</textarea>
 
-                                      @error('confirm_password')
+                                @error('description')
                                     <div class="text-danger">{{ $message }}</div>
                                 @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="role" class="col-sm-3 col-form-label">Select Role</label>
-                            <div class="col-sm-9">
-                                <select multiple class="form-select" name="roles[]">
-                                    <option selected="" disabled>Select Roles</option>
-
-                                    @foreach ($roles as $role)
-                                        <option value="{{ $role->name }}" {{ in_array($role->name,$userRole) ? 'selected': '' }}>{{ $role->name }}</option>
-                                    @endforeach
-
-                                </select>
                             </div>
                         </div>
 
