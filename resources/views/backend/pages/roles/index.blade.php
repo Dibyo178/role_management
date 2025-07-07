@@ -62,19 +62,17 @@
                                </td>
                                <td class="d-flex gap-2">
 
-                                 {{-- @can('role-edit') --}}
+                                 @can('role-edit')
 
 
 
                                    <a href="{{ route('roles.edit',$role->id) }}" class="btn btn-primary btn-small">edit</a>
 
-                                    {{-- @endcan --}}
+                                    @endcan
 
-                                    {{-- @can('role-delete') --}}
 
-                                    {{-- @endcan --}}
 
-                                    {{-- @can('role-delete') --}}
+                                    @can('role-delete')
 
                                    <form action="{{ route('roles.destroy',$role->id) }}" method="post">
 
@@ -86,7 +84,7 @@
 
                                    </form>
 
-                                   {{-- @endcan --}}
+                                   @endcan
 
                                </td>
                            </tr>

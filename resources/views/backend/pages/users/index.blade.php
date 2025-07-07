@@ -12,16 +12,21 @@
                 </ol>
             </nav>
         </div>
+
+        @can('user-create')
         <div class="ms-auto">
             <div class="btn-group">
                 <a href="{{route('users.create')}}" class="btn btn-primary">Create User</a>
             </div>
         </div>
+        @endcan
+
     </div>
     <!--end breadcrumb-->
     <h6 class="mb-0 text-uppercase">DataTable Example</h6>
     <hr>
 
+    @can('user-list')
     <div class="card">
         <div class="card-body">
             <div class="table-responsive">
@@ -55,7 +60,12 @@
                                 </td>
                                 <td>{{$user->email}}</td>
                                 <td class="d-flex gap-2">
+                                    @can('user-edit')
                                     <a href="{{ route('users.edit',$user->id) }}" class="btn btn-primary btn-small">edit</a>
+                                    @endcan
+
+                                     @can('user-delete')
+
                                      <form action="{{ route('users.destroy',$user->id) }}" method="post">
 
                                         @csrf
@@ -63,6 +73,7 @@
                                          @method('DELETE')
                                     <button type="submit" class="btn btn-danger btn-small">delete</button>
                                     </form>
+                                     @endcan
                                 </td>
                             </tr>
 
@@ -74,4 +85,6 @@
             </div>
         </div>
     </div>
+    @endcan
+
 @endsection

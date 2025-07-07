@@ -63,11 +63,13 @@
 						</li>
 
                         @endcan
-                        
+
 					</ul>
 				</li>
 
                 @endcan
+
+                 @can('user-menu')
 
 				<li>
 					<a class="has-arrow" href="javascript:;">
@@ -77,16 +79,24 @@
 					</a>
 					<ul>
 
+                         @can('user-list')
 						<li>
 							<a href="{{route('users.index')}}"><i class='bx bx-radio-circle'></i>All Users</a>
 						</li>
+                        @endcan
 
+                        @can('user-create')
 						<li>
 							<a href="{{route('users.create')}}"><i class='bx bx-radio-circle'></i>Create User</a>
 						</li>
+                        @endcan
+
+                        
 
 					</ul>
 				</li>
+
+                 @endcan
 				<li class="menu-label">Forms & Tables</li>
 				<li>
 					<a class="has-arrow" href="javascript:;">

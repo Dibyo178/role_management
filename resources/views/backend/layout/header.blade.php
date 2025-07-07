@@ -373,12 +373,18 @@
 					</div>
 					<div class="user-box dropdown px-3">
 
+                        @php
+                            $user = Auth::user();
+                             $username = $user->name;
+                             $useremail= $user->email;
+                        @endphp
+
 						<a class="d-flex align-items-center nav-link dropdown-toggle gap-3 dropdown-toggle-nocaret"
 							href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 							<img src="https://photo.sourovdev.space/images/personal.jpg" class="user-img" alt="user avatar">
 							<div class="user-info">
-								<p class="user-name mb-0">Sourov</p>
-								<p class="designattion mb-0">sourov@gmail.com</p>
+								<p class="user-name mb-0">{{ $username }}</p>
+								<p class="designattion mb-0">{{  $useremail}}</p>
 							</div>
 						</a>
 						<ul class="dropdown-menu dropdown-menu-end">
